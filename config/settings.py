@@ -1,11 +1,13 @@
 from pathlib import Path
 import os
 import environ
+from datetime import timedelta
 
 
 env = environ.Env(
     DEBUG=(bool, False),
     IMG_MAX_MB=(float, 5.0),
+    IMAGE_EXPIRES_IN_DAYS = (float, 5),
     SECRET_KEY=(str)
 )
 
@@ -29,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 IMG_MAX_MB = env('IMG_MAX_MB') # Image size limit in MegaBytes
+
+IMAGE_EXPIRATION_TIMEOUT = timedelta(days=env('IMAGE_EXPIRES_IN_DAYS'))
 
 INSTALLED_APPS = [
     'django.contrib.admin',
