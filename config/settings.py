@@ -27,6 +27,8 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+MAX_IMGSIZE_MB = 0.1 # Image size limit
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
