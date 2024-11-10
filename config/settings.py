@@ -5,6 +5,7 @@ import environ
 
 env = environ.Env(
     DEBUG=(bool, False),
+    IMG_MAX_MB=(float, 5.0),
     SECRET_KEY=(str)
 )
 
@@ -27,7 +28,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-MAX_IMGSIZE_MB = 0.1 # Image size limit
+IMG_MAX_MB = env('IMG_MAX_MB') # Image size limit in MegaBytes
 
 INSTALLED_APPS = [
     'django.contrib.admin',

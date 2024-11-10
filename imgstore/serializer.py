@@ -8,7 +8,7 @@ class PhotoSerializer(serializers.ModelSerializer):
         fields = ['id', 'image', 'uploaded_at']
     
     def validate_image(self, value):
-        image_max_size = settings.MAX_IMGSIZE_MB * 1024 * 1024
+        image_max_size = settings.IMG_MAX_MB * 1024 * 1024
         if value.size > image_max_size:
-            raise serializers.ValidationError(f'Image size limit {settings.MAX_IMGSIZE_MB}MB exceeds')
+            raise serializers.ValidationError(f'Image size limit {settings.IMG_MAX_MB}MB exceeds')
         return value
